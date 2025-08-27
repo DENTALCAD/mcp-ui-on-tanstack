@@ -1,49 +1,51 @@
-import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
-import { createServerFileRoute } from '@tanstack/react-start/server'
-import z from 'zod'
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { createServerFileRoute } from "@tanstack/react-start/server";
+import z from "zod";
+import { createUIResource } from "@mcp-ui/server";
 
-import { handleMcpRequest } from '@/utils/mcp-handler'
+import { handleMcpRequest } from "@/utils/mcp-handler";
 
-import { addTodo } from '@/mcp-todos'
+import guitars from "@/data/example-guitars";
 
 const server = new McpServer({
-  name: 'start-server',
-  version: '1.0.0',
-})
+  name: "start-server",
+  version: "1.0.0",
+});
 
 server.registerTool(
-  'addTodo',
+  "getGuitars",
   {
-    title: 'Tool to add a todo to a list of todos',
-    description: 'Add a todo to a list of todos',
+    title: "Returns the guitars from the database",
+    description: "Get guitars",
+  },
+  () => ({
+    content: [{ type: "text", text: JSON.stringify(guitars) }],
+  })
+);
+
+server.registerTool(
+  "recommendGuitar",
+  {
+    title: "Tool to visually recommend a guitar to the user",
+    description: "Recommend a guitar to the user",
     inputSchema: {
-      title: z.string().describe('The title of the todo'),
+      guitarId: z.string().describe("The id of the guitar to recommend"),
     },
   },
-  ({ title }) => ({
-    content: [{ type: 'text', text: String(addTodo(title)) }],
-  }),
-)
+  ({ guitarId }) => ({
+    content: [
+      createUIResource({
+        uri: `ui://my-tool/simpleIframe/${guitarId}`,
+        content: {
+          type: "externalUrl",
+          iframeUrl: `http://localhost:3000/iframe-guitar/${guitarId}`,
+        },
+        encoding: "text",
+      }),
+    ],
+  })
+);
 
-// server.registerResource(
-//   "counter-value",
-//   "count://",
-//   {
-//     title: "Counter Resource",
-//     description: "Returns the current value of the counter",
-//   },
-//   async (uri) => {
-//     return {
-//       contents: [
-//         {
-//           uri: uri.href,
-//           text: `The counter is at 20!`,
-//         },
-//       ],
-//     };
-//   }
-// );
-
-export const ServerRoute = createServerFileRoute('/_api/mcp').methods({
+export const ServerRoute = createServerFileRoute("/_api/mcp").methods({
   POST: async ({ request }) => handleMcpRequest(request, server),
-})
+});
