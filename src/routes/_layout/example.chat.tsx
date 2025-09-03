@@ -8,7 +8,6 @@ import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { UIResourceRenderer, isUIResource } from "@mcp-ui/client";
 
 import type { UIMessage } from "ai";
 
@@ -99,25 +98,12 @@ function Messages({ messages }: { messages: Array<UIMessage> }) {
                   if (
                     part.type === "tool-recommendGuitar" &&
                     part.state === "output-available" &&
-                    isUIResource(part.output as any)
+                    (part.output as { id: string })?.id
                   ) {
                     return (
-                      <div
-                        key={index}
-                        className="max-w-[80%] mx-auto text-white"
-                      >
-                        <UIResourceRenderer
-                          resource={(part.output as any).resource as any}
-                          onUIAction={async (result) => {
-                            console.log("Action:", result);
-                            return Promise.resolve(result);
-                          }}
-                          htmlProps={{
-                            style: {
-                              width: "600px",
-                              height: "600px",
-                            },
-                          }}
+                      <div key={index} className="max-w-[80%] mx-auto">
+                        <GuitarRecommendation
+                          id={(part.output as { id: string })?.id}
                         />
                       </div>
                     );

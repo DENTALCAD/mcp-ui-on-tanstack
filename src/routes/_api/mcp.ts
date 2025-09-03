@@ -8,7 +8,7 @@ import { handleMcpRequest } from "@/utils/mcp-handler";
 import guitars from "@/data/example-guitars";
 
 const server = new McpServer({
-  name: "start-server",
+  name: "guitar-server",
   version: "1.0.0",
 });
 
@@ -35,7 +35,7 @@ server.registerTool(
   ({ guitarId }) => ({
     content: [
       createUIResource({
-        uri: `ui://my-tool/simpleIframe/${guitarId}`,
+        uri: `ui://guitar-server/iframe-guitar/${guitarId}`,
         content: {
           type: "externalUrl",
           iframeUrl: `http://localhost:3000/iframe-guitar/${guitarId}`,

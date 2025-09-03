@@ -1,8 +1,27 @@
-import { tool } from "ai";
+import { experimental_createMCPClient, tool } from "ai";
+//import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { z } from "zod";
-import { createUIResource } from "@mcp-ui/server";
 
 import guitars from "../data/example-guitars";
+
+// Example of using an SSE MCP server
+// const mcpClient = await experimental_createMCPClient({
+//   transport: {
+//     type: "sse",
+//     url: "http://localhost:8081/sse",
+//   },
+//   name: "Demo Service",
+// });
+
+// Example of using an STDIO MCP server
+// const mcpClient = await experimental_createMCPClient({
+//   transport: new StdioClientTransport({
+//     command: "node",
+//     args: [
+//       "stdio-server.js",
+//     ],
+//   }),
+// });
 
 const getGuitars = tool({
   description: "Get all products from the database",
@@ -18,19 +37,16 @@ const recommendGuitar = tool({
     id: z.string().describe("The id of the guitar to recommend"),
   }),
   execute: async ({ id }) => {
-    return createUIResource({
-      uri: `ui://my-tool/simpleIframe/${id}`,
-      content: {
-        type: "externalUrl",
-        iframeUrl: `http://localhost:3000/iframe-guitar/${id}`,
-      },
-      encoding: "text",
-    });
+    return {
+      id,
+    };
   },
 });
 
 export default async function getTools() {
+  // const mcpTools = await mcpCient.tools()
   return {
+    // ...mcpTools,
     getGuitars,
     recommendGuitar,
   };
